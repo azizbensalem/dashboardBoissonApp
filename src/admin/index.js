@@ -73,7 +73,7 @@ const BoissonShowActions = () => (
   </TopToolbar>
 );
 
-const dataProvider = jsonServerProvider("http://13.36.173.35/api");
+const dataProvider = jsonServerProvider("https://13.36.173.35/api");
 
 const App = () => (
   <Admin dataProvider={dataProvider}>
