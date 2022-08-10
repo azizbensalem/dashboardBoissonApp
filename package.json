@@ -1,5 +1,5 @@
 {
-  "homepage": "http://azizbensalem.github.io",
+  "homepage": "https://azizbensalem.github.io/dashboardBoissonApp/",
   "name": "dashboardapp",
   "version": "0.1.0",
   "private": true,
@@ -40,7 +40,7 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "https://13.36.173.35",
+  "proxy": "http://localhost:3000",
   "devDependencies": {
     "gh-pages": "^4.0.0"
   }
