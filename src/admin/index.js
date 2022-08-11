@@ -73,7 +73,7 @@ const BoissonShowActions = () => (
   </TopToolbar>
 );
 
-const dataProvider = jsonServerProvider("https://bottlear.herokuapp.com/api");
+const dataProvider = jsonServerProvider("https://13.36.173.35/api");
 
 const App = () => (
   <Admin dataProvider={dataProvider}>
