@@ -34,7 +34,7 @@ export const BoissonList = () => (
   <List>
     <Datagrid rowClick="show">
       <TextField source="name" />
-      {/* <ImageField label="QR Code" source="QRCode" /> */}
+      <ImageField label="QR Code" source="QRCode" />
       <DateField label="Created at" source="createdAt" />
       <DateField label="Updated at" source="updatedAt" />
       <ShowButton />
@@ -49,7 +49,7 @@ export const BoissonShow = () => (
     <SimpleShowLayout>
       <TextField source="name" />
       <TextField source="description" />
-      {/* <ImageField label="QR Code" source="QRCode" /> */}
+      <ImageField label="QR Code" source="QRCode" />
       <DateField label="Created at" source="createdAt" />
       <DateField label="Updated at" source="updatedAt" />
     </SimpleShowLayout>
