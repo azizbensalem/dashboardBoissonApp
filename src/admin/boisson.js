@@ -51,6 +51,17 @@ export const BoissonShow = () => (
       <TextField source="description" />
       <TextField label="QR Code" source="QRCode" />
       <ImageField label="QR Code" source="QRCode" />
+      <TextField label="Les aliments" source="aliments" />
+      <TextField label="La valeur nutritionnel" source="valeur" />
+      <TextField
+        label="La température optimale de conservation"
+        source="tempopt"
+      />
+      <TextField
+        label="Une citation de développement personnel"
+        source="citation"
+      />
+      <TextField label="Timer" source="timer" />
       <DateField label="Created at" source="createdAt" />
       <DateField label="Updated at" source="updatedAt" />
     </SimpleShowLayout>
