@@ -26,6 +26,36 @@ export const BoissonCreate = () => (
         label="Description"
         validate={[required()]}
       />
+      <TextInput
+        source="aliments"
+        multiLine={true}
+        label="Les aliments"
+        validate={[required()]}
+      />
+      <TextInput
+        source="valeur"
+        multiLine={true}
+        label="La valeur nutritionnel"
+        validate={[required()]}
+      />
+      <TextInput
+        source="tempopt"
+        multiLine={true}
+        label="La température optimale de conservation"
+        validate={[required()]}
+      />
+      <TextInput
+        source="citation"
+        multiLine={true}
+        label="Une citation de développement personnel"
+        validate={[required()]}
+      />
+      <TextInput
+        source="timer"
+        multiLine={true}
+        label="Timer"
+        validate={[required()]}
+      />
     </SimpleForm>
   </Create>
 );
