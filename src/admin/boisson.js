@@ -95,6 +95,8 @@ export const BoissonShow = () => (
     <SimpleShowLayout>
       <TextField source="name" />
       <TextField source="description" />
+      <TextField source="QRCode.image" />
+      <ImageField source="QRCode.image" />
       <TextField label="Les aliments" source="aliments" />
       <TextField label="La valeur nutritionnel" source="valeur" />
       <TextField
