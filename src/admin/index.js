@@ -9,7 +9,7 @@ import {
 } from "./boisson";
 import { QRCodeCreate, QRCodeEdit, QRCodeList, QRCodeShow } from "./qrcode";
 
-const dataProvider = jsonServerProvider("https://bottlear.herokuapp.com/api");
+const dataProvider = jsonServerProvider("http://localhost:3000/api");
 
 const App = () => (
   <Admin dataProvider={dataProvider}>
