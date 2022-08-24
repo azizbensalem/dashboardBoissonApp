@@ -79,7 +79,6 @@ export const BoissonList = () => (
   <List>
     <Datagrid rowClick="show">
       <TextField source="name" />
-      <TextField source="QRCode.image" />
       <ImageField source="QRCode.image" />
       <DateField label="Created at" source="createdAt" />
       <DateField label="Updated at" source="updatedAt" />

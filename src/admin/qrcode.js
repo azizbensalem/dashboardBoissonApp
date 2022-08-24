@@ -13,6 +13,7 @@ import {
   EditButton,
   ShowButton,
   DeleteButton,
+  DateField,
 } from "react-admin";
 import { ListQRCode } from "../service/bottleService";
 
@@ -48,8 +49,8 @@ export const QRCodeShow = () => (
       <TextField source="name" />
       <TextField label="QR Code" source="image" />
       <ImageField label="QR Code" source="image" />
-      {/* <DateField label="Created at" source="createdAt" />
-        <DateField label="Updated at" source="updatedAt" /> */}
+      <DateField label="Created at" source="createdAt" />
+      <DateField label="Updated at" source="updatedAt" />
     </SimpleShowLayout>
   </Show>
 );
