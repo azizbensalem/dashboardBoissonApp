@@ -12,12 +12,19 @@ import {
   Show,
   SimpleShowLayout,
   DateField,
+  NumberField,
   EditButton,
   ShowButton,
   DeleteButton,
   SelectInput,
+  NumberInput,
 } from "react-admin";
 import { ListQRCode } from "../service/bottleService";
+import { Pagination } from "react-admin";
+
+const PostPagination = () => (
+  <Pagination rowsPerPageOptions={[10, 25, 50, 100]} />
+);
 
 export const BoissonCreate = () => {
   const [qr, setQR] = useState([]);
@@ -46,13 +53,13 @@ export const BoissonCreate = () => {
           label="Les aliments"
           validate={[required()]}
         />
-        <TextInput
+        <NumberInput
           source="valeur"
           multiLine={true}
           label="La valeur nutritionnel"
           validate={[required()]}
         />
-        <TextInput
+        <NumberInput
           source="tempopt"
           multiLine={true}
           label="La température optimale de conservation"
@@ -64,7 +71,7 @@ export const BoissonCreate = () => {
           label="Une citation de développement personnel"
           validate={[required()]}
         />
-        <TextInput
+        <NumberInput
           source="timer"
           multiLine={true}
           label="Timer"
@@ -76,7 +83,7 @@ export const BoissonCreate = () => {
 };
 
 export const BoissonList = () => (
-  <List>
+  <List pagination={<PostPagination />}>
     <Datagrid rowClick="show">
       <TextField source="name" />
       <ImageField source="QRCode.image" />
@@ -97,8 +104,8 @@ export const BoissonShow = () => (
       <TextField source="QRCode.image" />
       <ImageField source="QRCode.image" />
       <TextField label="Les aliments" source="aliments" />
-      <TextField label="La valeur nutritionnel" source="valeur" />
-      <TextField
+      <NumberField label="La valeur nutritionnel" source="valeur" />
+      <NumberField
         label="La température optimale de conservation"
         source="tempopt"
       />
@@ -106,18 +113,50 @@ export const BoissonShow = () => (
         label="Une citation de développement personnel"
         source="citation"
       />
-      <TextField label="Timer" source="timer" />
+      <NumberField label="Timer" source="timer" />
       <DateField label="Created at" source="createdAt" />
       <DateField label="Updated at" source="updatedAt" />
     </SimpleShowLayout>
   </Show>
 );
 
-export const BoissonEdit = () => (
-  <Edit>
-    <SimpleForm>
-      <TextInput source="name" label="Name" />
-      <TextInput source="description" label="Description" multiLine={true} />
-    </SimpleForm>
-  </Edit>
-);
+export const BoissonEdit = () => {
+  return (
+    <Edit>
+      <SimpleForm>
+        <TextInput source="name" label="Name" validate={[required()]} />
+        <TextInput source="description" multiLine={true} label="Description" />
+        <TextInput
+          source="aliments"
+          multiLine={true}
+          label="Les aliments"
+          validate={[required()]}
+        />
+        <NumberInput
+          source="valeur"
+          multiLine={true}
+          label="La valeur nutritionnel"
+          validate={[required()]}
+        />
+        <NumberInput
+          source="tempopt"
+          multiLine={true}
+          label="La température optimale de conservation"
+          validate={[required()]}
+        />
+        <TextInput
+          source="citation"
+          multiLine={true}
+          label="Une citation de développement personnel"
+          validate={[required()]}
+        />
+        <NumberInput
+          source="timer"
+          multiLine={true}
+          label="Timer"
+          validate={[required()]}
+        />
+      </SimpleForm>
+    </Edit>
+  );
+};

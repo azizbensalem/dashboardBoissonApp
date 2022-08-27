@@ -3,8 +3,8 @@ import axios from "axios";
 export const ListQRCode = async () => {
   try {
     const { data: response } = await axios.get(
-      `https://bottlear.herokuapp.com/api/qrcode`
-    ); //use data destructuring to get data from the promise object
+      `http://localhost:3000/api/qrcode`
+    );
     return response;
   } catch (error) {
     console.log(error);
