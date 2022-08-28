@@ -1,7 +1,7 @@
 export const authProvider = {
   // send username and password to the auth server and get back credentials
   login: ({ username, password }) => {
-    const request = new Request("http://localhost:3000/api/login", {
+    const request = new Request("https://bottlear.herokuapp.com/api/login", {
       method: "POST",
       body: JSON.stringify({ username, password }),
       headers: new Headers({ "Content-Type": "application/json" }),

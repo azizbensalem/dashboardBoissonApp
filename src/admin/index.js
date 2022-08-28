@@ -13,7 +13,7 @@ import { authProvider } from "../authProvider";
 import dashboard from "./dashboard";
 // import MyLoginPage from "../loginPage";
 
-const dataProvider = jsonServerProvider("http://localhost:3000/api");
+const dataProvider = jsonServerProvider("https://bottlear.herokuapp.com/api");
 
 const App = () => (
   <Admin
