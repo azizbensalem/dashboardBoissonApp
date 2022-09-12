@@ -1,6 +1,7 @@
 import { Admin, Resource } from "react-admin";
 import QrCodeIcon from "@mui/icons-material/QrCode";
 import LiquorIcon from "@mui/icons-material/Liquor";
+import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import jsonServerProvider from "ra-data-json-server";
 import {
   BoissonCreate,
@@ -11,9 +12,15 @@ import {
 import { QRCodeCreate, QRCodeEdit, QRCodeList, QRCodeShow } from "./qrcode";
 import { authProvider } from "../authProvider";
 import dashboard from "./dashboard";
+import {
+  CommandeCreate,
+  CommandeEdit,
+  CommandeList,
+  CommandeShow,
+} from "./commande";
 // import MyLoginPage from "../loginPage";
 
-const dataProvider = jsonServerProvider("https://bottlear.herokuapp.com/api");
+const dataProvider = jsonServerProvider("http://localhost:3000/api");
 
 const App = () => (
   <Admin
@@ -38,6 +45,14 @@ const App = () => (
       list={QRCodeList}
       create={QRCodeCreate}
       edit={QRCodeEdit}
+    />
+    <Resource
+      name="Commande"
+      icon={ShoppingCartIcon}
+      show={CommandeShow}
+      list={CommandeList}
+      create={CommandeCreate}
+      edit={CommandeEdit}
     />
   </Admin>
 );

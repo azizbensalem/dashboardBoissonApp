@@ -82,13 +82,15 @@ export const BoissonCreate = () => {
   );
 };
 
+const boissonFilters = [<TextInput label="Search" source="name" alwaysOn />];
+
 export const BoissonList = () => (
-  <List pagination={<PostPagination />}>
+  <List pagination={<PostPagination />} filters={boissonFilters}>
     <Datagrid rowClick="show">
       <TextField source="name" />
       <ImageField source="QRCode.image" />
-      <DateField label="Created at" source="createdAt" />
-      <DateField label="Updated at" source="updatedAt" />
+      <DateField label="Date de création" source="createdAt" />
+      <DateField label="Date de Modification" source="updatedAt" />
       <ShowButton />
       <EditButton />
       <DeleteButton />
@@ -114,8 +116,8 @@ export const BoissonShow = () => (
         source="citation"
       />
       <NumberField label="Timer" source="timer" />
-      <DateField label="Created at" source="createdAt" />
-      <DateField label="Updated at" source="updatedAt" />
+      <DateField label="Date de création" source="createdAt" />
+      <DateField label="Date de Modification" source="updatedAt" />
     </SimpleShowLayout>
   </Show>
 );
