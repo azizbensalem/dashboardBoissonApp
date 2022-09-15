@@ -20,7 +20,7 @@ import {
 } from "./commande";
 import { UserCreate, UserEdit, UserList, UserShow } from "./user";
 
-const dataProvider = jsonServerProvider("http://localhost:3000/api");
+const dataProvider = jsonServerProvider("https://bottlear.herokuapp.com/api");
 
 const App = () => {
   return (
