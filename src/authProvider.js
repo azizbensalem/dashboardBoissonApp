@@ -1,7 +1,9 @@
+import decodeJwt from "jwt-decode";
+
 export const authProvider = {
   // send username and password to the auth server and get back credentials
   login: ({ username, password }) => {
-    const request = new Request("https://bottlear.herokuapp.com/api/login", {
+    const request = new Request("http://localhost:3000/api/login", {
       method: "POST",
       body: JSON.stringify({ username, password }),
       headers: new Headers({ "Content-Type": "application/json" }),
@@ -13,8 +15,10 @@ export const authProvider = {
         }
         return response.json();
       })
-      .then((auth) => {
-        localStorage.setItem("auth", JSON.stringify(auth));
+      .then((token) => {
+        const decodedToken = decodeJwt(token.data.accessToken);
+        localStorage.setItem("token", JSON.stringify(token.data.accessToken));
+        localStorage.setItem("permissions", decodedToken.role);
         return { redirectTo: false };
       })
       .catch(() => {
@@ -25,7 +29,7 @@ export const authProvider = {
   checkError: (error) => {
     const status = error.status;
     if (status === 401 || status === 403) {
-      localStorage.removeItem("auth");
+      localStorage.removeItem("token");
       return Promise.reject();
     }
     // other error code (404, 500, etc): no need to log out
@@ -33,23 +37,25 @@ export const authProvider = {
   },
   // when the user navigates, make sure that their credentials are still valid
   checkAuth: () =>
-    localStorage.getItem("auth") ? Promise.resolve() : Promise.reject(),
+    localStorage.getItem("token") ? Promise.resolve() : Promise.reject(),
   // ...
   // remove local credentials and notify the auth server that the user logged out
   logout: () => {
-    localStorage.removeItem("auth");
+    localStorage.removeItem("token");
+    localStorage.removeItem("permissions");
     return Promise.resolve();
   }, // get the user's profile
   getIdentity: () => {
     try {
-      const { id, fullName, avatar } = JSON.parse(
-        localStorage.getItem("auth")
-      ).data;
+      const { id, fullName, avatar } = decodeJwt(localStorage.getItem("token"));
       return Promise.resolve({ id, fullName, avatar });
     } catch (error) {
       return Promise.reject(error);
     }
   },
   // get the user permissions (optional)
-  getPermissions: () => Promise.resolve(),
+  getPermissions: () => {
+    const role = localStorage.getItem("permissions");
+    return role ? Promise.resolve(role) : Promise.reject();
+  },
 };

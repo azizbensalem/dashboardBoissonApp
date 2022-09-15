@@ -18,43 +18,59 @@ import {
   CommandeList,
   CommandeShow,
 } from "./commande";
-// import MyLoginPage from "../loginPage";
+import { UserCreate, UserEdit, UserList, UserShow } from "./user";
 
 const dataProvider = jsonServerProvider("http://localhost:3000/api");
 
-const App = () => (
-  <Admin
-    title="BottleAR Admin"
-    dashboard={dashboard}
-    dataProvider={dataProvider}
-    authProvider={authProvider}
-    requireAuth
-  >
-    <Resource
-      name="bottle"
-      icon={LiquorIcon}
-      show={BoissonShow}
-      list={BoissonList}
-      create={BoissonCreate}
-      edit={BoissonEdit}
-    />
-    <Resource
-      name="QRCode"
-      icon={QrCodeIcon}
-      show={QRCodeShow}
-      list={QRCodeList}
-      create={QRCodeCreate}
-      edit={QRCodeEdit}
-    />
-    <Resource
-      name="Commande"
-      icon={ShoppingCartIcon}
-      show={CommandeShow}
-      list={CommandeList}
-      create={CommandeCreate}
-      edit={CommandeEdit}
-    />
-  </Admin>
-);
+const App = () => {
+  return (
+    <Admin
+      title="BottleAR Admin"
+      dashboard={dashboard}
+      dataProvider={dataProvider}
+      authProvider={authProvider}
+      requireAuth
+    >
+      {(permissions) => (
+        <>
+          {permissions === "superadmin" ? (
+            <Resource
+              name="User"
+              icon={LiquorIcon}
+              show={UserShow}
+              list={UserList}
+              create={UserCreate}
+              edit={UserEdit}
+            />
+          ) : null}
+          <Resource
+            name="bottle"
+            icon={LiquorIcon}
+            show={BoissonShow}
+            list={BoissonList}
+            create={BoissonCreate}
+            edit={BoissonEdit}
+          />
+          <Resource
+            name="QRCode"
+            icon={QrCodeIcon}
+            show={QRCodeShow}
+            list={QRCodeList}
+            create={QRCodeCreate}
+            edit={QRCodeEdit}
+          />
+          <Resource
+            name="Commande"
+            icon={ShoppingCartIcon}
+            show={CommandeShow}
+            list={CommandeList}
+            create={CommandeCreate}
+            edit={CommandeEdit}
+          />
+        </>
+      )}
+    </Admin>
+  );
+};
 
 export default App;
