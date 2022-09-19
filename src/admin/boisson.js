@@ -22,7 +22,6 @@ import {
   SearchInput,
 } from "react-admin";
 import { ListQRCode } from "../service/bottleService";
-import { LinkToRelatedProducts } from "../components/buttonFilterList";
 
 export const BoissonCreate = () => {
   const [qr, setQR] = useState([]);
@@ -82,18 +81,19 @@ export const BoissonCreate = () => {
 
 const BoissonFilters = (props) => (
   <Filter {...props}>
-    <SearchInput
+    <TextInput
       placeholder="Nom de la bouteille"
       source="name"
+      label="Nom de la bouteille"
       resettable
       alwaysOn
     />
+    <TextInput placeholder="Aliments" source="aliments" resettable alwaysOn />
   </Filter>
 );
 export const BoissonList = (props) => (
   <List {...props} disableSyncWithLocation filters={<BoissonFilters />}>
     <Datagrid rowClick="show">
-      <LinkToRelatedProducts />
       <TextField source="name" />
       <ImageField source="QRCode.image" />
       <DateField label="Date de création" source="createdAt" />
