@@ -3,7 +3,7 @@ import QrCodeIcon from "@mui/icons-material/QrCode";
 import LiquorIcon from "@mui/icons-material/Liquor";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import PersonIcon from "@mui/icons-material/Person";
-import jsonServerProvider from "ra-data-json-server";
+import { createTheme } from "@mui/material/styles";
 import polyglotI18nProvider from "ra-i18n-polyglot";
 import frenchMessages from "ra-language-french";
 import {
@@ -23,14 +23,22 @@ import {
 } from "./commande";
 import { UserCreate, UserEdit, UserList, UserShow } from "./user";
 import { customDataProvider } from "../service/dataProvider";
+import { blue, pink } from "@mui/material/colors";
 
-// const dataProvider = jsonServerProvider("http://localhost:3000/api");
+const theme = createTheme({
+  palette: {
+    primary: pink,
+    secondary: blue,
+  },
+});
 const i18nProvider = polyglotI18nProvider(() => frenchMessages, "fr");
 
 const App = () => {
   return (
     <Admin
       title="BottleAR Admin"
+      locale="fr"
+      theme={theme}
       dashboard={dashboard}
       dataProvider={customDataProvider}
       authProvider={authProvider}
