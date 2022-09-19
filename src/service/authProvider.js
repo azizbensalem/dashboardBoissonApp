@@ -17,9 +17,8 @@ export const authProvider = {
       })
       .then((token) => {
         const decodedToken = decodeJwt(token.data.accessToken);
-        localStorage.setItem("token", JSON.stringify(token.data.accessToken));
+        localStorage.setItem("token", token.data.accessToken);
         localStorage.setItem("permissions", decodedToken.role);
-        return { redirectTo: false };
       })
       .catch(() => {
         throw new Error("Network error");

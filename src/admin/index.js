@@ -13,7 +13,6 @@ import {
   BoissonShow,
 } from "./boisson";
 import { QRCodeCreate, QRCodeEdit, QRCodeList, QRCodeShow } from "./qrcode";
-import { authProvider } from "../authProvider";
 import dashboard from "./dashboard";
 import {
   CommandeCreate,
@@ -24,6 +23,7 @@ import {
 import { UserCreate, UserEdit, UserList, UserShow } from "./user";
 import { customDataProvider } from "../service/dataProvider";
 import { blue } from "@mui/material/colors";
+import { authProvider } from "../service/authProvider";
 
 const theme = createTheme({
   palette: {
