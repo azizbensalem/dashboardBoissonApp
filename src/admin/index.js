@@ -4,6 +4,8 @@ import LiquorIcon from "@mui/icons-material/Liquor";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import PersonIcon from "@mui/icons-material/Person";
 import jsonServerProvider from "ra-data-json-server";
+import polyglotI18nProvider from "ra-i18n-polyglot";
+import frenchMessages from "ra-language-french";
 import {
   BoissonCreate,
   BoissonEdit,
@@ -20,16 +22,19 @@ import {
   CommandeShow,
 } from "./commande";
 import { UserCreate, UserEdit, UserList, UserShow } from "./user";
+import { customDataProvider } from "../service/dataProvider";
 
-const dataProvider = jsonServerProvider("http://localhost:3000/api");
+// const dataProvider = jsonServerProvider("http://localhost:3000/api");
+const i18nProvider = polyglotI18nProvider(() => frenchMessages, "fr");
 
 const App = () => {
   return (
     <Admin
       title="BottleAR Admin"
       dashboard={dashboard}
-      dataProvider={dataProvider}
+      dataProvider={customDataProvider}
       authProvider={authProvider}
+      i18nProvider={i18nProvider}
       requireAuth
     >
       {(permissions) => (

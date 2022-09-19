@@ -7747,10 +7747,10 @@
   "resolved" "https://registry.npmjs.org/quick-lru/-/quick-lru-5.1.1.tgz"
   "version" "5.1.1"
 
-"ra-core@^4.0.0", "ra-core@^4.2.6":
-  "integrity" "sha512-N4ooTRohfp4pPbWQUhUC6WrkW304YvwMCAfW4x8m2DelJigEJo9WoY1ktCZ9gTspyrOUDGrMVZeG+a+xLMER5Q=="
-  "resolved" "https://registry.npmjs.org/ra-core/-/ra-core-4.2.6.tgz"
-  "version" "4.2.6"
+"ra-core@^4.0.0", "ra-core@^4.2.6", "ra-core@^4.3.3":
+  "integrity" "sha512-fD1bKFNiAq9Ubm31r/HxIp7aXmWpDT1r7gGQsQxP/i+L4WZndSXn9TOm/NYlYKC3+4kQGdlL/b5Uz5xUUgRPaA=="
+  "resolved" "https://registry.npmjs.org/ra-core/-/ra-core-4.3.3.tgz"
+  "version" "4.3.3"
   dependencies:
     "clsx" "^1.1.1"
     "date-fns" "^2.19.0"
@@ -7785,6 +7785,13 @@
   "version" "4.2.6"
   dependencies:
     "ra-core" "^4.2.6"
+
+"ra-language-french@^4.3.3":
+  "integrity" "sha512-8vi49qHmzrJcudd2cYUyd2mOK5Etm5b+HLNzkoIKBd0AijFqHpBFIaaXSZhlMbs0kq1ovhBWURVCy8M+wvlWCA=="
+  "resolved" "https://registry.npmjs.org/ra-language-french/-/ra-language-french-4.3.3.tgz"
+  "version" "4.3.3"
+  dependencies:
+    "ra-core" "^4.3.3"
 
 "ra-ui-materialui@^4.2.6":
   "integrity" "sha512-V/nWF+JPkrEGo6ONF5Qn732czS+tILs8KyRVq4ZQ6KSzGjIlAJOseT/RJNN+9BJxiDGDIKJX+QoISiWwbKSxxA=="
@@ -7922,10 +7929,10 @@
   "resolved" "https://registry.npmjs.org/react-error-overlay/-/react-error-overlay-6.0.11.tgz"
   "version" "6.0.11"
 
-"react-hook-form@*", "react-hook-form@^7.31.0":
-  "integrity" "sha512-s0/TJ09NVlEk2JPp3yit1WnMuPNBXFmUKEQPulgDi9pYBw/ZmmAFHe6AXWq73Y+kp8ye4OcMf0Jv+i/qLPektg=="
-  "resolved" "https://registry.npmjs.org/react-hook-form/-/react-hook-form-7.34.0.tgz"
-  "version" "7.34.0"
+"react-hook-form@*", "react-hook-form@^7.31.0", "react-hook-form@^7.34.2":
+  "integrity" "sha512-9CYdOed+Itbiu5VMVxW0PK9mBR3f0gDGJcZEyUSm0eJbDymQ913TRs2gHcQZZmfTC+rtxyDFRuelMxx/+xwMcw=="
+  "resolved" "https://registry.npmjs.org/react-hook-form/-/react-hook-form-7.35.0.tgz"
+  "version" "7.35.0"
 
 "react-is@^16.13.1":
   "integrity" "sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ=="

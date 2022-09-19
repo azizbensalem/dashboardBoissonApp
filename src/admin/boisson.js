@@ -18,15 +18,11 @@ import {
   DeleteButton,
   SelectInput,
   NumberInput,
-  FilterLiveSearch,
+  Filter,
+  SearchInput,
 } from "react-admin";
 import { ListQRCode } from "../service/bottleService";
-import { Pagination } from "react-admin";
 import { LinkToRelatedProducts } from "../components/buttonFilterList";
-
-const PostPagination = () => (
-  <Pagination rowsPerPageOptions={[10, 25, 50, 100]} />
-);
 
 export const BoissonCreate = () => {
   const [qr, setQR] = useState([]);
@@ -84,10 +80,18 @@ export const BoissonCreate = () => {
   );
 };
 
-const boissonFilters = [<FilterLiveSearch source="name" />];
-
-export const BoissonList = () => (
-  <List pagination={<PostPagination />} filters={boissonFilters}>
+const BoissonFilters = (props) => (
+  <Filter {...props}>
+    <SearchInput
+      placeholder="Nom de la bouteille"
+      source="name"
+      resettable
+      alwaysOn
+    />
+  </Filter>
+);
+export const BoissonList = (props) => (
+  <List {...props} disableSyncWithLocation filters={<BoissonFilters />}>
     <Datagrid rowClick="show">
       <LinkToRelatedProducts />
       <TextField source="name" />
