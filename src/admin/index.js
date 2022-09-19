@@ -2,6 +2,7 @@ import { Admin, Resource } from "react-admin";
 import QrCodeIcon from "@mui/icons-material/QrCode";
 import LiquorIcon from "@mui/icons-material/Liquor";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
+import PersonIcon from "@mui/icons-material/Person";
 import jsonServerProvider from "ra-data-json-server";
 import {
   BoissonCreate,
@@ -20,7 +21,7 @@ import {
 } from "./commande";
 import { UserCreate, UserEdit, UserList, UserShow } from "./user";
 
-const dataProvider = jsonServerProvider("https://bottlear.herokuapp.com/api");
+const dataProvider = jsonServerProvider("http://localhost:3000/api");
 
 const App = () => {
   return (
@@ -36,7 +37,8 @@ const App = () => {
           {permissions === "superadmin" ? (
             <Resource
               name="User"
-              icon={LiquorIcon}
+              options={{ label: "Utilisateurs" }}
+              icon={PersonIcon}
               show={UserShow}
               list={UserList}
               create={UserCreate}
@@ -45,6 +47,7 @@ const App = () => {
           ) : null}
           <Resource
             name="bottle"
+            options={{ label: "Bouteilles" }}
             icon={LiquorIcon}
             show={BoissonShow}
             list={BoissonList}
