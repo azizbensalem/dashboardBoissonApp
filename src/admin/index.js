@@ -23,7 +23,7 @@ import {
 } from "./commande";
 import { UserCreate, UserEdit, UserList, UserShow } from "./user";
 import { customDataProvider } from "../service/dataProvider";
-import { blue, pink } from "@mui/material/colors";
+import { blue } from "@mui/material/colors";
 
 const theme = createTheme({
   palette: {
