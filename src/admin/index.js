@@ -27,7 +27,7 @@ import { blue, pink } from "@mui/material/colors";
 
 const theme = createTheme({
   palette: {
-    primary: pink,
+    // primary: pink,
     secondary: blue,
   },
 });
