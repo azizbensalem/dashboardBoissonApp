@@ -19,7 +19,6 @@ import {
   SelectInput,
   NumberInput,
   Filter,
-  SearchInput,
 } from "react-admin";
 import { ListQRCode } from "../service/bottleService";
 
