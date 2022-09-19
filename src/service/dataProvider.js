@@ -2,7 +2,7 @@
 import { fetchUtils } from "react-admin";
 import { stringify } from "query-string";
 
-const apiUrl = "http://localhost:3000/api";
+const apiUrl = "https://bottlear.herokuapp.com/api";
 const httpClient = fetchUtils.fetchJson;
 
 export const customDataProvider = {
